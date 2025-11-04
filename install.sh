@@ -61,6 +61,7 @@ EOF
 mkdir -p ~/.config/zellij
 cat > ~/.config/zellij/config.kdl << 'EOF'
 default_shell "zsh"
+
 keybinds {
     normal {
         bind "Alt h" { MoveFocus "Left"; }
@@ -69,12 +70,22 @@ keybinds {
         bind "Alt k" { MoveFocus "Up"; }
         bind "Alt n" { NewPane; }
         bind "Alt t" { NewTab; }
-        bind "Alt x" { ClosePane; }
+        bind "Alt q" { Quit; }
         bind "Alt f" { ToggleFocusFullscreen; }
+        bind "Alt =" { Resize "Increase"; }
+        bind "Alt -" { Resize "Decrease"; }
     }
 }
+
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
+
 mouse_mode true
 default_layout "compact"
+scroll_buffer_size 10000
 EOF
 
 # 9. Setup Starship prompt
